@@ -68,7 +68,7 @@ class Gem extends Component {
             v. {version}
           </div>
           <div>
-            {dwn}
+            downloads: {dwn}
           </div>
         </div>
       </div>

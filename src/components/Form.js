@@ -8,18 +8,24 @@ class Form extends Component {
 
     this.searchGems = this.searchGems.bind(this)
     this.state = {
+      loading: false,
       searchres: []
     }
   }
 
   componentDidMount () {
-    this.searchForm.focus()
+    if (this.searchForm) {
+      this.searchForm.focus()
+    }
   }
 
   searchGems (event) {
     const searchText = event.target.value
+    this.setState({
+      loading: true
+    })
 
-    if ((searchText !== '') && (searchText.length > 3)) {
+    if ((searchText !== '') && (searchText.length > 2)) {
       axios.get(`http://localhost:3000/api/v1/search.json?query=${searchText}`)
         .then((res) => {
           this.setState({
@@ -41,9 +47,9 @@ class Form extends Component {
             name='searchForm'
             onChange={this.searchGems}
             placeholder='Search Ruby Gems' />
-          <button>Search</button>
+          <button onClick={this.searchGems}>Search</button>
         </div>
-        <Results searchres={this.state.searchres} />
+        <Results loading={this.state.loading} searchres={this.state.searchres} />
       </React.Fragment>
     )
   }

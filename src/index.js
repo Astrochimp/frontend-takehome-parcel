@@ -5,7 +5,6 @@ import Main from './components/Main'
 
 const App = () => (
   <div className='App'>
-    <h1 className='App-Title'>Ruby Gem Search</h1>
     <Main />
   </div>
 )

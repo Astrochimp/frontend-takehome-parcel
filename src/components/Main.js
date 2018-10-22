@@ -24,24 +24,27 @@ class Main extends Component {
 
   render () {
     return (
-      <div>
+      <div className='app__wrapper'>
+        <h1 className='App-Title'>Ruby Gem Search</h1>
         <div className='tabs'>
           <div className={(this.state.tabView === 'search') ? 'selected' : ''}
             onClick={() => this.toggleView('search')}>Search</div>
           <div className={(this.state.tabView === 'saved') ? 'selected' : ''}
             onClick={() => this.toggleView('saved')}>Saved</div>
         </div>
-        {this.state.tabView === 'search' &&
-          <React.Fragment>
-            <Form />
-            <Results />
-          </React.Fragment>
-        }
-        {this.state.tabView === 'saved' &&
-          <React.Fragment>
-            <Saved />
-          </React.Fragment>
-        }
+        <div className='tabs__wrapper'>
+          <div className={(this.state.tabView === 'search') ? 'selected__view' : 'hidden__view'}>
+            <React.Fragment>
+              <Form />
+              <Results />
+            </React.Fragment>
+          </div>
+          <div className={(this.state.tabView === 'saved') ? 'selected__view' : 'hidden__view'}>
+            <React.Fragment>
+              <Saved />
+            </React.Fragment>
+          </div>
+        </div>
       </div>
     )
   }

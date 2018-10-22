@@ -33,6 +33,10 @@ class Results extends Component {
 
     return (
       <div className='search-results'>
+        {(this.props.loading && this.props.searchres.length === 0) &&
+          <div className='loading' />
+        }
+
         {this.props.searchres &&
           <div>{resList}</div>
         }
@@ -42,6 +46,7 @@ class Results extends Component {
 }
 
 Results.propTypes = {
+  loading: PropTypes.bool,
   searchres: PropTypes.array
 }
 

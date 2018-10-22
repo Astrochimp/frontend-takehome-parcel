@@ -47,6 +47,7 @@ button {
 }
 
 .search--list {
+  background: var(--darkgray);
   margin: 20px 0;
   border-bottom: 1px solid var(--lightgreen);
   padding: 10px 0 10px 0;
@@ -98,6 +99,13 @@ button {
   text-align: right;
 }
 
+.tabs__wrapper {
+  perspective: 1000px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
 .tabs {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -116,11 +124,54 @@ button {
   border-bottom: 3px solid var(--darkgreen);
 }
 
+.selected__view {
+  transition: all 0.3s ease-in-out;
+  transform-origin: top;
+  grid-column: 1 / -1;
+  height: auto;
+  transform: translateX(0px);
+  transform-origin: left;
+
+}
+
+.hidden__view {
+  transition: all 0.3s ease-in-out;
+  height: 0px;
+  opacity: 0;
+  grid-column: 1 / -1;
+  transform: translateX(-800px);
+  transform-origin: left;
+}
+
 @media only screen and (min-width: 800px) {
   .App {
-    border: 1px solid var(--darkgreen);
     margin: 0px auto 0px auto;
     padding: 5px;
     width: 600px;
+  }
+}
+
+.loading {
+  width: 120px;
+  height: 120px;
+  border: none;
+  border-top: 5px solid var(--lightgreen);
+  border-bottom: 5px solid var(--lightgreen);
+  border-radius: 50%;
+  margin: 50px auto 50px auto;
+  animation: spinner 1s linear infinite;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+
+  50% {
+    transform: rotate(45deg) scale(0.8);
+  }
+
+  100% {
+    transform: rotate(360deg) scale(1);
   }
 }
