@@ -1,33 +1,33 @@
-const request = require('request');
-const express = require('express');
-const app = express();
+const request = require('request')
+const express = require('express')
+const app = express()
 
-const RUBY_GEMS_URL = 'https://rubygems.org';
-const PORT = 3000;
+const RUBY_GEMS_URL = 'https://rubygems.org'
+const PORT = 3000
 
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header('Access-Control-Allow-Origin', '*')
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
 
-  next();
-});
+  next()
+})
 
 app.get('/api/**/*', (req, res) => {
-  const url = `${RUBY_GEMS_URL}${req.originalUrl}`;
+  const url = `${RUBY_GEMS_URL}${req.originalUrl}`
 
   request.get(url, (err, response, body) => {
-    if(response.statusCode === 400) {
-      res.send([]);
+    if (response.statusCode === 400) {
+      res.send([])
     } else {
-      res.send(body);
+      res.send(body)
     }
-  });
-});
+  })
+})
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('dist'))
 }
 
-app.listen(PORT);
+app.listen(PORT)
 
-console.log(`Ruby Gems proxy API is now running at: http://localhost:${PORT}`);
+console.log(`Ruby Gems proxy API is now running at: http://localhost:${PORT}`)

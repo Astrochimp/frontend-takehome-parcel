@@ -20,8 +20,13 @@
   },
   "homepage": "https://github.com/UseFedora/frontend-takehome-parcel#readme",
   "dependencies": {
+    "axios": "^0.18.0",
     "concurrently": "^4.0.1",
     "express": "^4.16.3",
-    "parcel": "^1.9.7"
+    "parcel": "^1.9.7",
+    "prop-types": "^15.6.2",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "request": "^2.88.0"
   }
 }

@@ -1,0 +1,86 @@
+:root {
+  --black: #000;
+  --white: #fff;
+}
+
+body {
+  background: var(--white);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+.search--form {
+  margin: 0 0 20px 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+}
+
+.search--form input[type='text'] {
+  border: 1px solid #eee;
+  border-radius: 3px;
+  padding: 5px;
+  flex: 1;
+  font-size: 20px;
+}
+
+button {
+  display: inline;
+  background: #eee;
+  border: none;
+  font-size: 20px;
+}
+
+.search--list {
+  margin: 20px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.action button {
+  font-size: 14px;
+}
+
+.gem--title {
+  display: flex;
+  flex-direction: row;
+  margin: 0 5px 5px 5px;
+}
+
+.gem--title a {
+  display: block;
+  flex: 1;
+  color: var(--black);
+}
+
+.gem--title h3 {
+  margin: 0;
+}
+
+.gem--details {
+  display: grid;
+  grid-template-columns: 1fr 50px 1fr;
+  margin: 0 5px;
+}
+
+.gem--details div {
+  font-size: 14px;
+  color: #999;
+}
+
+.gem--details div:nth-child(3) {
+  text-align: right;
+}
+
+.tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.tabs div {
+  text-align: center;
+  border: 1px solid #eee;
+  cursor: pointer;
+  padding: 10px;
+}
