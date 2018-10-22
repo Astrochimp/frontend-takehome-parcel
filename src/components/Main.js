@@ -14,19 +14,22 @@ class Main extends Component {
     this.toggleView = this.toggleView.bind(this)
   }
 
-  toggleView () {
-    const view = this.state.tabView === 'search' ? 'saved' : 'search'
-    this.setState({
-      tabView: view
-    })
+  toggleView (tab) {
+    if (tab !== null) {
+      this.setState({
+        tabView: tab
+      })
+    }
   }
 
   render () {
     return (
       <div>
         <div className='tabs'>
-          <div onClick={this.toggleView}>Search</div>
-          <div onClick={this.toggleView}>Saved</div>
+          <div className={(this.state.tabView === 'search') ? 'selected' : ''}
+            onClick={() => this.toggleView('search')}>Search</div>
+          <div className={(this.state.tabView === 'saved') ? 'selected' : ''}
+            onClick={() => this.toggleView('saved')}>Saved</div>
         </div>
         {this.state.tabView === 'search' &&
           <React.Fragment>

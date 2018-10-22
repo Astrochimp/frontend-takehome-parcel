@@ -12,6 +12,10 @@ class Form extends Component {
     }
   }
 
+  componentDidMount () {
+    this.searchForm.focus()
+  }
+
   searchGems (event) {
     const searchText = event.target.value
 
@@ -32,7 +36,9 @@ class Form extends Component {
     return (
       <React.Fragment>
         <div className='search--form'>
-          <input type='text' name='rubysearch'
+          <input type='text'
+            ref={(input) => { this.searchForm = input }}
+            name='searchForm'
             onChange={this.searchGems}
             placeholder='Search Ruby Gems' />
           <button>Search</button>
